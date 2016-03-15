@@ -50,6 +50,10 @@ object ArchetypeCatalog {
 
   type LoadedEntry = Entry[Id, Id, Id, Option, Option]
 
+  /** Load a catalog from an XML string */
+  def load(data: String): Xor[String, ArchetypeCatalog] =
+    load(Source.fromString(data))
+
   /** Load a catalog from an XML source */
   def load(source: Source): Xor[String, ArchetypeCatalog] = {
     // format: OFF
